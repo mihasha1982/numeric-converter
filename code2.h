@@ -1,41 +1,10 @@
 #include <stdio.h>
-//функция
-int save_up(char number[],int base)
-{
-  int num10 = 0;
-
-  for(int i = 0; i < 50 && number[i]!='\n';i++)
-     {
-          num10 = (number[i]<'A')
-          ?num10*base + number[i] - '0'
-          :num10*base + number[i] - 'A' + 10;
-     }
-
-  return num10;
-}
+//прототипы функций
+int save_up(char[],int);
 //функция2
-void fill_array(char number[],int num,int base)
-{
-  for(int i = 0; i<50 && num!=0 ;i++)
-       {
-         number[i] = (num%base<10)
-         ?num%base+'0'
-         :num%base+'A'-10;
-         num = num/base;
-       }
-
-}
+void fill_array(char[],int,int);
 //функция 3
-void swap_places(char number[],int i, int g)
-{
-  char change = 0;
-  for(i;i>g;i--,g++)
-  {
-    change = number[i];
-    number[i] = number[g];
-    number[g] = change;
-  }
-}
+void swap_places(char[],int, int);
 
 int main()
 {
@@ -72,4 +41,40 @@ int main()
   return 0;
 }
 
+int save_up(char number[],int base)
+{
+  int num10 = 0;
+
+  for(int i = 0; i < 50 && number[i]!='\n';i++)
+     {
+          num10 = (number[i]<'A')
+          ?num10*base + number[i] - '0'
+          :num10*base + number[i] - 'A' + 10;
+     }
+
+  return num10;
+}
+//функция2
+void fill_array(char number[],int num,int base)
+{
+  for(int i = 0; i<50 && num!=0 ;i++)
+       {
+         number[i] = (num%base<10)
+         ?num%base+'0'
+         :num%base+'A'-10;
+         num = num/base;
+       }
+
+}
+//функция 3
+void swap_places(char number[],int i, int g)
+{
+  char change = 0;
+  for(i;i>g;i--,g++)
+  {
+    change = number[i];
+    number[i] = number[g];
+    number[g] = change;
+  }
+}
 
