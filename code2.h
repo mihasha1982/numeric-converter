@@ -1,10 +1,8 @@
 #include <stdio.h>
-//прототипы функций
-int save_up(char[],int);
-//функция2
-void fill_array(char[],int,int);
-//функция 3
-void swap_places(char[],int, int);
+//прототипы функций обязательно должны быть до главной функции main
+int convert_array_called_number_to_decimal_number(char[],int);
+void convert_variable_called_number10_and_put_array_number_end(char[],int,int);
+void swap_values_in_number_end_so_that_last_one_becomes_the_first_one_and_so_on(char[]);
 
 int main()
 {
@@ -13,9 +11,7 @@ int main()
        change = 0;
    int base = 0,
        base2 = 0,
-       number10 = 0,
-       i,k,
-       g = 0;
+       number10 = 0;
 
 
   printf("Enter number:");
@@ -25,23 +21,21 @@ int main()
   scanf("%d",&base);
 
   //применяю функцию
-  number10 = save_up(number,base);
+  number10 = convert_array_called_number_to_decimal_number(number,base);
 
   printf("Enter output base:");
   scanf("%d",&base2);
 
   //применяю функцию 2
-  fill_array(number_end,number10,base2);
+  convert_variable_called_number10_and_put_array_number_end(number_end,number10,base2);
 
-  i--;
   //применяю функцию 3
-  swap_places(number_end,i,g);
+  swap_values_in_number_end_so_that_last_one_becomes_the_first_one_and_so_on(number_end);
 
   printf("%s\n",number_end);
   return 0;
 }
-
-int save_up(char number[],int base)
+int convert_array_called_number_to_decimal_number(char number[],int base)
 {
   int num10 = 0;
 
@@ -55,26 +49,28 @@ int save_up(char number[],int base)
   return num10;
 }
 //функция2
-void fill_array(char number[],int num,int base)
+void convert_variable_called_number10_and_put_array_number_end(char number[],int num,int base)
 {
   for(int i = 0; i<50 && num!=0 ;i++)
-       {
+     {
          number[i] = (num%base<10)
          ?num%base+'0'
          :num%base+'A'-10;
          num = num/base;
-       }
+     }
 
 }
 //функция 3
-void swap_places(char number[],int i, int g)
+void swap_values_in_number_end_so_that_last_one_becomes_the_first_one_and_so_on(char number[])
 {
-  char change = 0;
+  char temp = 0;
+  int i = -1,
+      g = 0;
+  while(number[i]!='\0')i++;
   for(i;i>g;i--,g++)
-  {
-    change = number[i];
-    number[i] = number[g];
-    number[g] = change;
-  }
+    {
+         temp = number[i];
+         number[i] = number[g];
+         number[g] = temp;
+    }
 }
-
