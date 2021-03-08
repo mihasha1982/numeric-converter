@@ -1,3 +1,5 @@
+//Программа переводит число из одной системы счисления в другую. 
+//Системы счисления пользователь выбирает сам
 #include <stdio.h>
 int convert_array_to_decimal_number(char[],int);
 void convert_variable_to_array(char[],int,int);
