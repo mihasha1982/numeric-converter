@@ -21,16 +21,13 @@ int main()
   printf("Enter base:");
   scanf("%d",&base);
 
-  //применяю функцию
   number10 = convert_array_called_number_to_decimal_number(number,base);
 
   printf("Enter output base:");
   scanf("%d",&base2);
-
-  //применяю функцию 2
+  
   convert_variable_called_number10_and_put_array_number_end(number_end,number10,base2);
 
-  //применяю функцию 3
   swap_values_in_number_end_so_that_last_one_becomes_the_first_one_and_so_on(number_end);
 
   printf("%s\n",number_end);
