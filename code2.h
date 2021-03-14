@@ -1,6 +1,7 @@
 //Программа переводит число из одной системы счисления в другую. 
 //Системы счисления пользователь выбирает сам
 #include <stdio.h>
+#include <string.h>
 
 int convert_array_to_decimal_number(char[], int);
 void convert_variable_to_array(char[], int, int);
@@ -60,12 +61,10 @@ void swap_values_in_array(char number[]) {
     
     char temp = 0;
     
-    int i = -1,
+    int i = 0,
         g = 0;
   
-    while (number[i] != '\0')i++;
-  
-    for (i; i > g; i--, g++) {
+    for (i = strlen(number) - 1; i > g; i--, g++) {
              temp = number[i];
              number[i] = number[g];
              number[g] = temp;
